@@ -1,0 +1,4 @@
+###AWS TAGGER###
+This is a simple python script to create aws-tag for any resource in a particular AWS region.
+
+Dependecy : boto, python2.7
