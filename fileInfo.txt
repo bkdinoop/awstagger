@@ -1,0 +1,2 @@
+#Resource-information
+<resource-id>,<tag-name>:<tag-key>,<tag-name>:<tag-key>,<tag-name>:<tag-key>
