@@ -1,10 +1,10 @@
 #!/usr/bin/python 
-#EBS volume fetch information
+#AWS resource Tagger
 import sys
-import connectAws 
+import connectAws
+from checkConfig import  checkValidation  
 
 def addTag(region, akey, skey, resourceId, tagDict):
-  region = "us-west-1"
   ec2 = connectAws()
   ec2Obj = ec2.ec2Instance(akey, skey, region)
   result = ec2Obj.create_tags(resourceId, tagDict)
@@ -14,7 +14,6 @@ def addTag(region, akey, skey, resourceId, tagDict):
     print "Error:Not created Tag for", resourceID
     
 def removeTag(region, akey, skey, resourceId, tagDict):
-  region="us-west-1"
   ec2 = ec2Instance(akey, skey, region)
   result = ec2.create_tags(resourceId,tagDict)
   if result:
@@ -23,17 +22,38 @@ def removeTag(region, akey, skey, resourceId, tagDict):
     print "Error:Not Removed for",resourceID
 
 def main():
-  print len(sys.argv)
-  option = sys.argv[1]
-  print option
-  if option == '--file':
-    fileObj = open(filename,'rw')
-    
-  elif option == '--help':
-    print 'I can help you'
+  print """##############################################################
+#Config file should be in same folder where the python script is there
+#Config should contain aws region, aws credential details and tagging information filename
+#########################################################
+  """
+  configFile = raw_input('Enter the config file-name : ')
+  chkObject =  checkValidation()
+  fileCheck, filestatus = chkObject.fileExists(configFile)
+  region,akey,skey,infoFile='','','',''
+  if fileCheck:
+    parsFile = open(configFile)
+    confList = parsFile.readlines()
+    for cL in confList:
+      ccL = cL.strip()
+      l = ccL.split(':')
+      if l[0] == 'ak':
+        akey = l[1]
+      elif l[0] == 'sk':
+        skey = l[1]
+      elif l[0] == 'region':
+        region = l[1]
+      elif l[0] == 'filename':
+        infoFile = l[1]	
+        	  
+    print region,akey,skey,infoFile
+    if chkObject.customCheck(region,akey,skey,infoFile):
+      print "Checked the region,aws-key and filename"
+    else:
+      print "Error in either region or aws-key or filename"
   else:
-	  print 'valid options --file | --help'
-	  d
+    print filestatus
+
 if __name__ == '__main__':
   main()
   
