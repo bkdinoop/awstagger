@@ -1,19 +1,23 @@
 #!/usr/bin/python
-#Parse a xls file or a string and store it as a dict 
-import sys
-import xlrd
+#A module to parse a file and create the dict of resource-id as key
+#and tagging value as its value 
 
-def parseXl(workBook):
-  wb = xlrd.open_workbook(workBook)
-  wb.sheet_names()
-  sheets = wb.sheet_by_index(0)
-  lsheet = {}
-  for rownum in range(sheets.nrows):
-    dKey = (sheets.row_values(rownum))[1].strip()
-    dValue = (sheets.row_values(rownum))[4].strip()
-    #lsheet[dKey] = 
-    lsheet.update({dKey:{'Name':dValue}})
-  
-  return lsheet
-  
 
+def parsefile(fileName):
+  fileObj = open(fileName)
+  fList = fileObj.readlines()
+  contDict = {}
+  for fL in fList:
+    if not fL[0] == "#":
+      tagInfo = fL.strip().split(',')
+      resKey = tagInfo[0]
+      resVal = {}
+      for tI in tagInfo[1:]:
+        tagList = tI.split(':')
+        resVal.update({tagList[0]:tagList[1]})
+      
+      contDict.update({resKey:resVal})
+    else:
+      continue   
+      
+  return contDict

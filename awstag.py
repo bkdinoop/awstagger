@@ -1,25 +1,27 @@
 #!/usr/bin/python 
 #AWS resource Tagger
 import sys
-import connectAws
-from checkConfig import  checkValidation  
+from connectAws import connectAws
+from checkConfig import  checkValidation 
+from parse2dict import parsefile 
 
 def addTag(region, akey, skey, resourceId, tagDict):
   ec2 = connectAws()
   ec2Obj = ec2.ec2Instance(akey, skey, region)
   result = ec2Obj.create_tags(resourceId, tagDict)
   if result:
-    print "Created Tag for", resourceID
+    print "Created Tag for", resourceId
   else:
-    print "Error:Not created Tag for", resourceID
+    print "Error:Not created Tag for", resourceId
     
 def removeTag(region, akey, skey, resourceId, tagDict):
-  ec2 = ec2Instance(akey, skey, region)
-  result = ec2.create_tags(resourceId,tagDict)
+  ec2 = connectAws()
+  ec2Obj = ec2.ec2Instance(akey, skey, region)
+  result = ec2Obj.create_tags(resourceId,tagDict)
   if result:
     print "Removed tag for", resourceId
   else:
-    print "Error:Not Removed for",resourceID
+    print "Error:Not Removed for",resourceId
 
 def main():
   print """##############################################################
@@ -45,10 +47,11 @@ def main():
         region = l[1]
       elif l[0] == 'filename':
         infoFile = l[1]	
-        	  
-    print region,akey,skey,infoFile
+
     if chkObject.customCheck(region,akey,skey,infoFile):
-      print "Checked the region,aws-key and filename"
+      taggerVal = parsefile(infoFile)
+      for tv in taggerVal.items():
+        addTag(region, akey, skey, tv[0],tv[1])
     else:
       print "Error in either region or aws-key or filename"
   else:
