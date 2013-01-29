@@ -1,5 +1,6 @@
 AWS TAGGER
 ================
+
 This is a simple python script to create aws-tag for any resource in a particular AWS region.
 Configuration file and Information file are the two file where user have to define the aws details.
 In configuration file we need to mention region,access-key,secret-key and information file. 
@@ -9,6 +10,7 @@ Dependecy : boto, python2.7
 
 Config File
 -------------
+
 It contains information for aws and file name.
  
 >Each line should have one value, 
@@ -21,6 +23,7 @@ It contains information for aws and file name.
 
 Information file
 ----------------
+
 Values should be stored in a manner that scripts should understand.
 Line starting with '#' symbol are treated as comment.
 >Values should be given in below format:
