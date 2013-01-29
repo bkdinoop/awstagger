@@ -27,7 +27,7 @@ Information file
 Values should be stored in a manner that scripts should understand.
 Line starting with '#' symbol are treated as comment.
 >Values should be given in below format:
->>1. <res-id>,<tag-key>:<tag-value>,<tag1-key>:<tag1-value><tag2-key>:<tag2-value>,... ,<tag10-key>:<tag10-value>
+>>1. res-id,tag-key:tag-value,tag1-key:tag1-value,tag2-key:tag2-value,... ,tag10-key:tag10-value
 >>2. Resource-id should be given first then tag values related to the resource id, all are seperated by comma.
 >>3. Every tagkey and tag value should be seperated by colon
 >>4. Each tag-key-value pair are seperated by comma.
