@@ -3,7 +3,7 @@
 import boto
 import boto.ec2
 
-class connectAws():
+class ConnectAws():
     
   def ec2Instance(self, access_key,secret_key,region):
     """This method is to create ec2 connection object
