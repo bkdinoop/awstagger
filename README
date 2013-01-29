@@ -1,4 +1,4 @@
-###AWS TAGGER
+AWS TAGGER
 ================
 This is a simple python script to create aws-tag for any resource in a particular AWS region.
 Configuration file and Information file are the two file where user have to define the aws details.
@@ -29,4 +29,4 @@ Line starting with '#' symbol are treated as comment.
 >>3. Every tagkey and tag value should be seperated by colon
 >>4. Each tag-key-value pair are seperated by comma.
 
-###eNoy tagging
+***eNoy tagging
