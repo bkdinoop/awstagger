@@ -36,4 +36,12 @@ Line starting with '#' symbol are treated as comment.
 How to run the script
 =====================
 
-#eNoy tagging
+Main Script file is awstag.py, which depends on a config file where you specify the aws and file details
+>Step1: Create a text file where you have to store res-id and tagging values.
+>Step2: Create a config file, here we have to mention the aws details, what operation you need to do and file path where tagging and resource id is mentioned
+>Step3: Run the python script 'python awstag.py'
+>Step4: It will prompt for config file 
+
+All resource id will be tagged
+
+#eNjoy tagging
