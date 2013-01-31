@@ -19,7 +19,8 @@ It contains information for aws and file name. Operation is a keyword where we h
 >>3. Secret key should be specified with variable 'sk', single colon ":" , secretkey value.
 >>4. Filename should be specified with variable 'filename', single colon ":" , filename  value.  
 >>5. Operation should be specified with variable 'operation', single colon ":", add or remove, here we have to mention whether we need to add or remove the tags in aws.
-**Please refer the sample config file given in repository
+
+#Please refer the sample config file given in repository
 
 Information file
 ----------------
@@ -32,4 +33,7 @@ Line starting with '#' symbol are treated as comment.
 >>3. Every tagkey and tag value should be seperated by colon
 >>4. Each tag-key-value pair are seperated by comma.
 
-*eNoy tagging
+How to run the script
+=====================
+
+#eNoy tagging
