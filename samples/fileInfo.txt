@@ -1,0 +1,3 @@
+#Resource-information
+vol-891e46b6,Name:testhapx,billing:hapx
+vol-f8d7f0c7,Name:test3,billing:ghapx
