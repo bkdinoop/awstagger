@@ -55,18 +55,32 @@ class CheckValidation():
         available = True
       
     return available
-    
+  
+  def formatCheck(self,fileinfo):
+    content = open(fileinfo)
+    contentList = content.readlines()
+    for crl in contentList:
+      if not crl[0] == "#":
+        cList = crl.split(',')
+        if len(cList) > 10:
+          print "Error: Only 10 key-value pair allowed in AWS for a particular resource"
+          return False
+          
+      else: continue
+      
+    return True 
+        	     
   def customCheck(self,region,ak,sk,fileinfo,operation):
     ckObj = CheckValidation()
     if ckObj.regValidate(region) and ckObj.chkOperation(operation):
       if ckObj.checkAWSkey(ak, sk, region):
         fCheck,fStatus = ckObj.fileExists(fileinfo) 
-        if fCheck:
+        if fCheck and ckObj.formatCheck(fileinfo):
           print fStatus;return True
         else:
-          print fStatus;exit()
+          print fStatus;return False
       else:
-        print "Error in Acess and Secret Key"
+        print "Error in Acess and Secret Key"; return False
     else:
-      print "Error in the Region-Name or operation should be 'add' or 'remove' "
+      print "Error in the Region-Name or operation should be 'add' or 'remove' "; return False
 
