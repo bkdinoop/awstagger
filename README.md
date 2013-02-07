@@ -39,8 +39,19 @@ How to run the script
 Main Script file is awstag.py, which depends on a config file where you specify the aws and file details
 >1. Create a text file where you have to store res-id and tagging values.
 >2. Create a config file, here we have to mention the aws details, what operation you need to do and file path where tagging and resource id is mentioned
->3. Run the python script 'python awstag.py'
->4. It will prompt for config file 
+>3. Run the python script 
+```sh
+$ python awstag.py
+
+##############################################################
+#Config file should be in same folder where the python script is there
+#Config should contain aws region, aws credential details and tagging information filename
+#########################################################
+  
+Enter the config file-name : 
+```sh
+
+>4. It will prompt for config file like above
 
 All resource id will be tagged
 
