@@ -40,6 +40,7 @@ Main Script file is awstag.py, which depends on a config file where you specify 
 >1. Create a text file where you have to store res-id and tagging values.
 >2. Create a config file, here we have to mention the aws details, what operation you need to do and file path where tagging and resource id is mentioned
 >3. Run the python script
+	
 	$ python awstag.py
 
 	##############################################################
