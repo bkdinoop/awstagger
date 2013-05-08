@@ -41,6 +41,7 @@ Main Script file is awstag.py, which depends on a config file where you specify 
 >2. Create a config file, here we have to mention the aws details, what operation you need to do and file path where tagging and resource id is mentioned
 >3. Run the python script
 	
+	$ pip install boto
 	$ python awstag.py
 
 	##############################################################
