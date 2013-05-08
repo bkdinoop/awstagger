@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE. 
 
+__author__ = 'Dinoop Balakrishnan'
+__title__ = 'parse2dict'
 
 def parsefile(fileName):
   fileObj = open(fileName)

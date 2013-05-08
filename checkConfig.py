@@ -20,6 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
+__author__ = 'Dinoop Balakrishnan'
+__title__ = 'awstag'
+
 from connectAws import ConnectAws
 
 class CheckValidation():
@@ -47,9 +50,12 @@ class CheckValidation():
     del ec2Obj
     return True
     
+  def checkElmt(self, element):
+    if element.__contains__(":"):#this function is to check the first element
+		  
   def chkOperation(self,operation):
     available = False
-    operations = {'add','remove'}
+    operations = ['add','remove']
     for op in operations:
       if op == operation:
         available = True
@@ -59,13 +65,16 @@ class CheckValidation():
   def formatCheck(self,fileinfo):
     content = open(fileinfo)
     contentList = content.readlines()
+    ckObj = CheckValidation()
     for crl in contentList:
       if not crl[0] == "#":
         cList = crl.split(',')
         if len(cList) > 10:
           print "Error: Only 10 key-value pair allowed in AWS for a particular resource"
           return False
-          
+        else :
+          for cL in cList: ckObj.checklen(cL); continue
+              
       else: continue
       
     return True 

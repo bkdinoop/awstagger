@@ -20,6 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
+__author__ = 'Dinoop Balakrishnan'
+__title__ = 'awstag'
+
 import sys
 from connectAws import ConnectAws
 from checkConfig import  CheckValidation 
